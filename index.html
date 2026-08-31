@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URBAN CLOSET | 都市で生きる人の、新しいワードローブ</title>
+  <meta name="description" content="URBAN CLOSET（アーバンクローゼット）は、都市生活を洗練させるミニマルでジェンダーレスなアパレルブランドです。2026 SPRING COLLECTION 展開中。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       共通ヘッダー (Header)
+       ========================================== -->
+  <header class="site-header header-dark">
+    <div class="container header-container">
+      <!-- 左：ハンバーガーメニューボタン -->
+      <div class="header-left">
+        <button type="button" class="menu-toggle-btn" id="openNavBtn" aria-label="メニューを開く">
+          <span class="hamburger-icon">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+          <span>MENU</span>
+        </button>
+      </div>
+
+      <!-- 中央：ブランドロゴ -->
+      <div class="header-logo">
+        <a href="index.html" class="logo-text">URBAN CLOSET</a>
+      </div>
+
+      <!-- 右：検索 & カートボタン -->
+      <div class="header-right">
+        <button type="button" class="header-icon-btn" id="openSearchBtn" aria-label="商品を検索">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button type="button" class="header-icon-btn open-cart-btn" id="openCartBtn" aria-label="カートを見る">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       フルスクリーンメニュー (Fullscreen Navigation Overlay)
+       ========================================== -->
+  <div class="fullscreen-nav" id="fullscreenNav">
+    <div class="nav-header">
+      <div class="logo-text" style="color:#FFF;">URBAN CLOSET</div>
+      <button type="button" class="nav-close-btn" id="closeNavBtn" aria-label="メニューを閉じる">
+        <span>CLOSE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-content">
+      <ul class="nav-main-list">
+        <li class="nav-main-item">
+          <a href="index.html" class="nav-main-link"><span class="nav-index">01</span> HOME</a>
+        </li>
+        <li class="nav-main-item">
+          <a href="products.html" class="nav-main-link"><span class="nav-index">02</span> PRODUCTS</a>
+        </li>
+        <li class="nav-main-item">
+          <a href="about.html" class="nav-main-link"><span class="nav-index">03</span> ABOUT</a>
+        </li>
+        <li class="nav-main-item">
+          <a href="lookbook.html" class="nav-main-link"><span class="nav-index">04</span> LOOKBOOK</a>
+        </li>
+        <li class="nav-main-item">
+          <a href="contact.html" class="nav-main-link"><span class="nav-index">05</span> CONTACT</a>
+        </li>
+      </ul>
+
+      <div class="nav-sub-info">
+        <p class="nav-concept-quote">
+          「都市で生きる人の、新しいワードローブ」<br>
+          性別や時代の枠組みにとらわれない、研ぎ澄まされたミニマリズムを提案します。
+        </p>
+
+        <div class="nav-category-links">
+          <div class="nav-category-title">CATEGORIES</div>
+          <div class="nav-category-list">
+            <a href="products.html?category=ALL">ALL</a>
+            <a href="products.html?category=TOPS">TOPS</a>
+            <a href="products.html?category=BOTTOMS">BOTTOMS</a>
+            <a href="products.html?category=OUTERWEAR">OUTERWEAR</a>
+            <a href="products.html?category=ACCESSORIES">ACCESSORIES</a>
+          </div>
+        </div>
+
+        <div class="nav-footer-meta">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       クイック検索モーダル (Search Modal)
+       ========================================== -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-box">
+      <button type="button" class="search-close-btn" id="closeSearchBtn" aria-label="検索を閉じる">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="search-input-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="商品名・カテゴリ・キーワードを入力...">
+        <div class="search-input-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </div>
+      <div class="search-results" id="searchResults">
+        <!-- 検索結果がここに動的表示されます -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       スライドイン・カートドロワー (Cart Drawer)
+       ========================================== -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="cart-drawer" aria-label="ショッピングカート">
+      <div class="cart-drawer-header">
+        <h2 class="cart-drawer-title">SHOPPING BAG</h2>
+        <button type="button" class="cart-drawer-close" id="closeCartBtn" aria-label="カートを閉じる">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- カート内商品が動的に描画されます -->
+      </div>
+      <div class="cart-drawer-footer">
+        <div class="cart-subtotal-row">
+          <span class="cart-subtotal-label">SUBTOTAL</span>
+          <span class="cart-subtotal-price" id="cartSubtotalPrice">¥0</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="cartCheckoutBtn">CHECKOUT</button>
+        <p class="cart-notice">※全品送料無料 / 7日以内返品・交換対応</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ==========================================
+       メインコンテンツ (Main Content)
+       ========================================== -->
+  <main id="mainContent">
+
+    <!-- 1. ヒーローセクション -->
+    <section class="hero-section">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1920&q=85" alt="2026 Spring Collection Hero" class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-season-tag">2026 SPRING COLLECTION</span>
+        <h1 class="hero-title">SILENT<br>URBAN FORM</h1>
+        <p class="hero-lead">都市の余白に溶け込む、研ぎ澄まされたユニセックス・ワードローブ</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary" style="background:#FFF; color:#0A0A0A; border-color:#FFF;">SHOP NOW</a>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- 2. 新着商品セクション (New Arrivals) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">NEW ARRIVALS</h2>
+            <p class="section-subtitle">2026年春の最新アイテム</p>
+          </div>
+          <a href="products.html" class="section-link">
+            VIEW ALL PRODUCTS
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="new-arrivals-grid">
+          <!-- Item 1: オーバーサイズTシャツ -->
+          <article class="product-card">
+            <a href="product-detail.html?id=1" class="product-card-thumb">
+              <span class="product-tag-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80" alt="オーバーサイズTシャツ" class="product-img-main" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80" alt="オーバーサイズTシャツ 別アングル" class="product-img-hover" loading="lazy">
+            </a>
+            <div class="product-card-info">
+              <span class="product-brand">URBAN CLOSET</span>
+              <h3 class="product-title"><a href="product-detail.html?id=1">オーバーサイズTシャツ</a></h3>
+              <div class="product-price">¥6,500</div>
+            </div>
+          </article>
+
+          <!-- Item 2: ワイドテーパードパンツ -->
+          <article class="product-card">
+            <a href="product-detail.html?id=2" class="product-card-thumb">
+              <span class="product-tag-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=80" alt="ワイドテーパードパンツ" class="product-img-main" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1000&q=80" alt="ワイドテーパードパンツ 別アングル" class="product-img-hover" loading="lazy">
+            </a>
+            <div class="product-card-info">
+              <span class="product-brand">URBAN CLOSET</span>
+              <h3 class="product-title"><a href="product-detail.html?id=2">ワイドテーパードパンツ</a></h3>
+              <div class="product-price">¥12,000</div>
+            </div>
+          </article>
+
+          <!-- Item 4: コーチジャケット -->
+          <article class="product-card">
+            <a href="product-detail.html?id=4" class="product-card-thumb">
+              <span class="product-tag-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80" alt="コーチジャケット" class="product-img-main" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=80" alt="コーチジャケット 別アングル" class="product-img-hover" loading="lazy">
+            </a>
+            <div class="product-card-info">
+              <span class="product-brand">URBAN CLOSET</span>
+              <h3 class="product-title"><a href="product-detail.html?id=4">コーチジャケット</a></h3>
+              <div class="product-price">¥18,000</div>
+            </div>
+          </article>
+
+          <!-- Item 8: ステンカラーコート -->
+          <article class="product-card">
+            <a href="product-detail.html?id=8" class="product-card-thumb">
+              <span class="product-tag-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1000&q=80" alt="ステンカラーコート" class="product-img-main" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="ステンカラーコート 別アングル" class="product-img-hover" loading="lazy">
+            </a>
+            <div class="product-card-info">
+              <span class="product-brand">URBAN CLOSET</span>
+              <h3 class="product-title"><a href="product-detail.html?id=8">ステンカラーコート</a></h3>
+              <div class="product-price">¥28,000</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ブランドコンセプトセクション (Brand Concept) -->
+    <section class="section concept-section">
+      <div class="container">
+        <div class="concept-inner">
+          <div class="concept-visual">
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=80" alt="URBAN CLOSET Concept Visual" class="concept-img-main" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=600&q=80" alt="URBAN CLOSET Silhouette" class="concept-img-sub" loading="lazy">
+          </div>
+          <div class="concept-content">
+            <span class="concept-tag">BRAND CONCEPT</span>
+            <h2 class="concept-heading">都市で生きる人の、<br>新しいワードローブ</h2>
+            <div class="concept-text">
+              <p>
+                目まぐるしく変化する都市の日常において、服は自己を静かに表現するシェルターであるべきだと考えます。
+              </p>
+              <p>
+                性別の境界をなくし、装飾を極限まで削ぎ落とすことで際立つ、立体的なカッティングと上質なファブリック。どんな街並みにも調和し、着る人の個性を引き立てるタイムレスなスタイルを提案します。
+              </p>
+            </div>
+            <div style="margin-top: 1rem;">
+              <a href="about.html" class="btn btn-outline">READ OUR STORY</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ルックブックプレビュー (Lookbook Preview) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">LOOKBOOK PREVIEW</h2>
+            <p class="section-subtitle">2026 SPRING スタイリングギャラリー</p>
+          </div>
+          <a href="lookbook.html" class="section-link">
+            VIEW ALL LOOKS
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="lookbook-preview-grid">
+          <a href="lookbook.html" class="lookbook-preview-card tall">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="Lookbook 01" class="lookbook-preview-img" loading="lazy">
+            <div class="lookbook-preview-caption">
+              <h4>LOOK 01 - URBAN MINIMALISM</h4>
+              <span>Balmacaan Coat & Wide Trousers</span>
+            </div>
+          </a>
+
+          <a href="lookbook.html" class="lookbook-preview-card medium">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" alt="Lookbook 02" class="lookbook-preview-img" loading="lazy">
+            <div class="lookbook-preview-caption">
+              <h4>LOOK 03 - TEXTURE & DRAPE</h4>
+              <span>French Linen Shirt</span>
+            </div>
+          </a>
+
+          <a href="lookbook.html" class="lookbook-preview-card short">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80" alt="Lookbook 03" class="lookbook-preview-img" loading="lazy">
+            <div class="lookbook-preview-caption">
+              <h4>LOOK 06 - MODERN ESSENTIALS</h4>
+              <span>Ribbed Knit Vest Layering</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ニュースレター登録セクション (Newsletter) -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <h2 class="newsletter-title">JOIN OUR NEWSLETTER</h2>
+          <p class="newsletter-desc">
+            新コレクションの先行予約案内や限定イベント、最新ルックブックの情報をいち早くお届けします。
+          </p>
+          <form class="newsletter-form newsletter-form-main" id="homeNewsletterForm">
+            <input type="email" class="newsletter-input" placeholder="メールアドレスを入力してください" required>
+            <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       共通フッター (Footer)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">URBAN CLOSET</span>
+          <p class="footer-tagline">
+            「都市で生きる人の、新しいワードローブ」<br>
+            性別や時代の枠組みにとらわれない、研ぎ澄まされたミニマリズムを提案します。
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">NAVIGATION</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="lookbook.html">LOOKBOOK</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">CATEGORIES</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=TOPS">TOPS</a></li>
+            <li><a href="products.html?category=BOTTOMS">BOTTOMS</a></li>
+            <li><a href="products.html?category=OUTERWEAR">OUTERWEAR</a></li>
+            <li><a href="products.html?category=ACCESSORIES">ACCESSORIES</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">NEWSLETTER</h3>
+          <p class="footer-newsletter-text">
+            最新リリースや限定オファーをお届けします。
+          </p>
+          <form class="footer-form">
+            <input type="email" placeholder="Email address" required>
+            <button type="submit">JOIN</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 URBAN CLOSET. All Rights Reserved.</div>
+        <div class="footer-sns">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>
