@@ -362,8 +362,6 @@
   padding-top: 1.5rem;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .size-guide-title {
@@ -375,9 +373,17 @@
   color: var(--color-text-main);
 }
 
+.size-guide-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+}
+
 .size-guide-table {
   width: 100%;
-  min-width: 360px;
+  min-width: 340px;
   border-collapse: collapse;
   font-size: 0.85rem;
   text-align: left;
@@ -476,6 +482,24 @@
   .product-detail-layout {
     padding-top: 0.5rem;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-gallery {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-main-view {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-thumbnails {
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .related-grid {

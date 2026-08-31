@@ -349,11 +349,19 @@
 
 @media (max-width: 768px) {
   .hero-bg {
-    object-position: center 20%;
+    object-position: center 15%;
   }
 
   .hero-title {
     font-size: 2.2rem;
+  }
+
+  .hero-lead {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    margin-bottom: 2rem;
   }
 
   .hero-actions {
@@ -368,6 +376,13 @@
   .new-arrivals-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .newsletter-desc {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .newsletter-form-main {

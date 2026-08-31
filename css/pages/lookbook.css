@@ -269,6 +269,17 @@
 }
 
 @media (max-width: 768px) {
+  .lookbook-header .page-title {
+    font-size: 2.2rem;
+  }
+
+  .lookbook-header .page-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
   .lookbook-gallery {
     grid-template-columns: 1fr;
     gap: 1.25rem;

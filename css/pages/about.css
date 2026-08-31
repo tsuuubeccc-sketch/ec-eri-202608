@@ -257,3 +257,16 @@
     padding: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .about-hero-desc {
+    font-size: 0.84rem;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
