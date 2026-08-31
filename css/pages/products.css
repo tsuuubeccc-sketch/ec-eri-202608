@@ -280,6 +280,7 @@
 /* Color Swatches */
 .swatch-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
@@ -312,6 +313,7 @@
 /* Size Buttons */
 .size-btn-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
@@ -358,6 +360,10 @@
   margin-top: 1.5rem;
   border-top: 1px solid var(--color-border);
   padding-top: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .size-guide-title {
@@ -371,6 +377,7 @@
 
 .size-guide-table {
   width: 100%;
+  min-width: 360px;
   border-collapse: collapse;
   font-size: 0.85rem;
   text-align: left;
@@ -380,6 +387,7 @@
 .size-guide-table td {
   padding: 0.65rem 0.75rem;
   border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
 }
 
 .size-guide-table th {
@@ -406,6 +414,7 @@
   color: var(--color-text-muted);
   margin-top: 1rem;
   line-height: 1.8;
+  word-break: break-word;
 }
 
 /* Related Products Section */
@@ -431,10 +440,19 @@
   .product-detail-layout {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
+    width: 100%;
+    min-width: 0;
   }
 
   .product-gallery {
     position: static;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-info-panel {
+    width: 100%;
+    min-width: 0;
   }
 
   .related-grid {
@@ -455,12 +473,22 @@
     row-gap: 2rem;
   }
 
+  .product-detail-layout {
+    padding-top: 0.5rem;
+    gap: 1.5rem;
+  }
+
   .related-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
   .detail-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    word-break: break-word;
+  }
+
+  .detail-price {
+    font-size: 1.35rem;
   }
 }
