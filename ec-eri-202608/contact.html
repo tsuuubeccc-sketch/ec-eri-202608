@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTACT | URBAN CLOSET - お問い合わせ</title>
+  <meta name="description" content="URBAN CLOSETへのお問い合わせ、サイズ選びのご相談、よくある質問（FAQ）はこちらから。">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages/contact.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       共通ヘッダー (Header)
+       ========================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- 左：ハンバーガーメニューボタン -->
+      <div class="header-left">
+        <button type="button" class="menu-toggle-btn" id="openNavBtn" aria-label="メニューを開く">
+          <span class="hamburger-icon">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+          <span>MENU</span>
+        </button>
+      </div>
+
+      <!-- 中央：ブランドロゴ -->
+      <div class="header-logo">
+        <a href="index.html" class="logo-text">URBAN CLOSET</a>
+      </div>
+
+      <!-- 右：検索 & カートボタン -->
+      <div class="header-right">
+        <button type="button" class="header-icon-btn" id="openSearchBtn" aria-label="商品を検索">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button type="button" class="header-icon-btn open-cart-btn" id="openCartBtn" aria-label="カートを見る">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       フルスクリーンメニュー (Fullscreen Navigation Overlay)
+       ========================================== -->
+  <div class="fullscreen-nav" id="fullscreenNav">
+    <div class="nav-header">
+      <div class="logo-text" style="color:#FFF;">URBAN CLOSET</div>
+      <button type="button" class="nav-close-btn" id="closeNavBtn" aria-label="メニューを閉じる">
+        <span>CLOSE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-content">
+      <ul class="nav-main-list">
+        <li class="nav-main-item"><a href="index.html" class="nav-main-link"><span class="nav-index">01</span> HOME</a></li>
+        <li class="nav-main-item"><a href="products.html" class="nav-main-link"><span class="nav-index">02</span> PRODUCTS</a></li>
+        <li class="nav-main-item"><a href="about.html" class="nav-main-link"><span class="nav-index">03</span> ABOUT</a></li>
+        <li class="nav-main-item"><a href="lookbook.html" class="nav-main-link"><span class="nav-index">04</span> LOOKBOOK</a></li>
+        <li class="nav-main-item"><a href="contact.html" class="nav-main-link"><span class="nav-index">05</span> CONTACT</a></li>
+      </ul>
+
+      <div class="nav-sub-info">
+        <p class="nav-concept-quote">
+          「都市で生きる人の、新しいワードローブ」<br>
+          性別や時代の枠組みにとらわれない、研ぎ澄まされたミニマリズムを提案します。
+        </p>
+
+        <div class="nav-category-links">
+          <div class="nav-category-title">CATEGORIES</div>
+          <div class="nav-category-list">
+            <a href="products.html?category=ALL">ALL</a>
+            <a href="products.html?category=TOPS">TOPS</a>
+            <a href="products.html?category=BOTTOMS">BOTTOMS</a>
+            <a href="products.html?category=OUTERWEAR">OUTERWEAR</a>
+            <a href="products.html?category=ACCESSORIES">ACCESSORIES</a>
+          </div>
+        </div>
+
+        <div class="nav-footer-meta">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       クイック検索モーダル (Search Modal)
+       ========================================== -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-box">
+      <button type="button" class="search-close-btn" id="closeSearchBtn" aria-label="検索を閉じる">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="search-input-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="商品名・カテゴリ・キーワードを入力...">
+        <div class="search-input-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       スライドイン・カートドロワー (Cart Drawer)
+       ========================================== -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="cart-drawer" aria-label="ショッピングカート">
+      <div class="cart-drawer-header">
+        <h2 class="cart-drawer-title">SHOPPING BAG</h2>
+        <button type="button" class="cart-drawer-close" id="closeCartBtn" aria-label="カートを閉じる">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cart-items-container" id="cartItemsContainer"></div>
+      <div class="cart-drawer-footer">
+        <div class="cart-subtotal-row">
+          <span class="cart-subtotal-label">SUBTOTAL</span>
+          <span class="cart-subtotal-price" id="cartSubtotalPrice">¥0</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="cartCheckoutBtn">CHECKOUT</button>
+        <p class="cart-notice">※全品送料無料 / 7日以内返品・交換対応</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ==========================================
+       メインコンテンツ (Main Content)
+       ========================================== -->
+  <main id="mainContent">
+
+    <!-- ページタイトルヘッダー -->
+    <section class="contact-header">
+      <div class="container">
+        <nav class="breadcrumb" style="justify-content: center; margin-bottom: 1rem;" aria-label="パンくずリスト">
+          <a href="index.html">HOME</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>CONTACT</span>
+        </nav>
+        <h1 class="page-title">CONTACT US</h1>
+        <p class="page-subtitle">商品やスタイリングに関するご質問、サイズ選びのご相談などお気軽にお問い合わせください。</p>
+      </div>
+    </section>
+
+    <!-- お問い合わせ & FAQレイアウト -->
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- 左カラム：お問い合わせフォーム -->
+        <section class="contact-form-section">
+          <h2 class="contact-section-title">INQUIRY FORM</h2>
+
+          <!-- 送信完了メッセージボックス -->
+          <div class="form-success-message" id="formSuccessMessage">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="16 10 10 16 7 13"></polyline>
+            </svg>
+            <h3 class="form-success-title">お問い合わせを受け付けました</h3>
+            <p class="form-success-text">
+              ご入力いただいたメールアドレス宛に確認メールをお送りいたしました。<br>
+              通常1〜2営業日以内に担当スタッフよりご返信いたします。
+            </p>
+            <button type="button" class="btn btn-outline btn-sm" id="resetFormBtn" style="margin-top: 1rem;">
+              新しいお問い合わせを入力
+            </button>
+          </div>
+
+          <!-- フォーム本体 -->
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="contactName" class="form-label">
+                お名前 <span class="form-required">*必須</span>
+              </label>
+              <input type="text" id="contactName" class="form-input" placeholder="山田 太郎" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">
+                メールアドレス <span class="form-required">*必須</span>
+              </label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="example@urbancloset.jp" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactType" class="form-label">
+                お問い合わせ種別 <span class="form-required">*必須</span>
+              </label>
+              <select id="contactType" class="form-select" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="size">商品・サイズ選びについて</option>
+                <option value="order">ご注文・配送状況について</option>
+                <option value="return">返品・交換について</option>
+                <option value="press">取材・プレス・スタイリスト様お問い合わせ</option>
+                <option value="other">その他のお問い合わせ</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">
+                お問い合わせ内容 <span class="form-required">*必須</span>
+              </label>
+              <textarea id="contactMessage" class="form-textarea" placeholder="ご質問やご相談内容を詳しくご記入ください。" required></textarea>
+            </div>
+
+            <div class="form-privacy-check">
+              <input type="checkbox" id="contactPrivacy" required>
+              <label for="contactPrivacy">
+                <a href="about.html">プライバシーポリシー</a>に同意の上、送信します。
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn" style="margin-top: 0.5rem;">
+              SEND MESSAGE
+            </button>
+          </form>
+        </section>
+
+        <!-- 右カラム：FAQ & カスタマーサポート情報 -->
+        <div class="contact-side-section">
+          
+          <!-- よくある質問 (FAQ) -->
+          <div>
+            <h2 class="contact-section-title" style="margin-bottom: 1.5rem;">FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="faq-list" id="faqAccordionList">
+              <!-- js/contact.js によって5つのFAQが動的生成されます -->
+            </div>
+          </div>
+
+          <!-- サポート案内 & アトリエ情報 -->
+          <div class="support-info-box">
+            <h3 class="support-title">CUSTOMER SUPPORT & ATELIER</h3>
+            
+            <div class="support-detail-item">
+              <span class="support-label">営業時間</span>
+              <span class="support-val">平日 10:00 - 18:00（土日祝日を除く）</span>
+            </div>
+
+            <div class="support-detail-item">
+              <span class="support-label">メールアドレス</span>
+              <span class="support-val">support@urbancloset-demo.com</span>
+            </div>
+
+            <div class="support-detail-item">
+              <span class="support-label">FLAGSHIP STUDIO (TOKYO)</span>
+              <span class="support-val">東京都渋谷区神宮前5-10-1 URBAN BLDG. 1F/2F</span>
+            </div>
+
+            <div class="support-detail-item">
+              <span class="support-label">OFFICIAL SNS</span>
+              <div style="display: flex; gap: 1rem; margin-top: 0.25rem;">
+                <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: underline; font-size: 0.85rem;">Instagram</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" style="text-decoration: underline; font-size: 0.85rem;">X (Twitter)</a>
+                <a href="https://pinterest.com" target="_blank" rel="noopener" style="text-decoration: underline; font-size: 0.85rem;">Pinterest</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================
+       共通フッター (Footer)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">URBAN CLOSET</span>
+          <p class="footer-tagline">
+            「都市で生きる人の、新しいワードローブ」<br>
+            性別や時代の枠組みにとらわれない、研ぎ澄まされたミニマリズムを提案します。
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">NAVIGATION</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="lookbook.html">LOOKBOOK</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">CATEGORIES</h3>
+          <ul class="footer-links">
+            <li><a href="products.html?category=TOPS">TOPS</a></li>
+            <li><a href="products.html?category=BOTTOMS">BOTTOMS</a></li>
+            <li><a href="products.html?category=OUTERWEAR">OUTERWEAR</a></li>
+            <li><a href="products.html?category=ACCESSORIES">ACCESSORIES</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-column-title">NEWSLETTER</h3>
+          <p class="footer-newsletter-text">
+            最新リリースや限定オファーをお届けします。
+          </p>
+          <form class="footer-form">
+            <input type="email" placeholder="Email address" required>
+            <button type="submit">JOIN</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 URBAN CLOSET. All Rights Reserved.</div>
+        <div class="footer-sns">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
