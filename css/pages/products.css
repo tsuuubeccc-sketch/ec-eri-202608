@@ -281,7 +281,11 @@
 .swatch-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.85rem;
+  /* 選択時の外側リング(-4px)が親要素のoverflowで切れないよう余白を確保 */
+  padding: 6px 6px;
+  margin-left: 2px;
 }
 
 .color-swatch-btn {
@@ -291,6 +295,8 @@
   position: relative;
   cursor: pointer;
   padding: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
   transition: transform var(--transition-fast);
 }
 
@@ -520,6 +526,16 @@
     max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+  }
+
+  .swatch-group {
+    padding: 6px 6px;
+    margin-left: 2px;
+    gap: 0.85rem;
+  }
+
+  .size-btn-group {
+    padding: 2px 0;
   }
 
   .size-guide-section {
