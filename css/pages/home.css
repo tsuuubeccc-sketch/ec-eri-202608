@@ -349,7 +349,9 @@
 
 @media (max-width: 768px) {
   .hero-bg {
-    object-position: center 15%;
+    top: 68px;
+    height: calc(100% - 68px);
+    object-position: center 20%;
   }
 
   .hero-title {
